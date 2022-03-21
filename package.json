@@ -1,0 +1,25 @@
+{
+  "name": "projeto-pokedex-mvc",
+  "version": "1.0.0",
+  "description": "Projeto MVC de uma pokedex",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegofreitas50/projeto-pokedex-mvc.git"
+  },
+  "author": "Diego Freitas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegofreitas50/projeto-pokedex-mvc/issues"
+  },
+  "homepage": "https://github.com/diegofreitas50/projeto-pokedex-mvc#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
