@@ -3,8 +3,10 @@ const { dirname } = require("path");
 const app = express();
 const port = 3000;
 const path = require("path");
+
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
+app.use(express.urlencoded());
 
 const pokedex = [
     {
@@ -33,11 +35,33 @@ const pokedex = [
     
 ]
 
+let pokemon = undefined;
 
-
-app.get("/", (req, res) => {
-  res.render("index", {pokedex});
+app.get("/", (req, res) => {    
+    res.render("index", {pokedex, pokemon});
 });
+
+app.post("/add", (req, res) => {
+    const pokemon = req.body;
+    pokedex.id = pokedex.length + 1;
+    pokedex.push(pokemon);
+    res.redirect("/")
+});
+
+app.get("/detalhes/:id", (req, res) => {
+    const id = +req.params.id;
+    pokemon = pokedex.find((pokemon) => pokemon.id === id);
+    res.redirect("/");
+})
+
+app.post("/update/:id", (req, res) => {
+    const id = +req.params.id - 1;
+    const newPokemon = req.body;
+    newPokemon.id = id + 1;
+    pokedex[id] = newPokemon;
+    pokemon = undefined;
+    res.redirect("/");
+})
 
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
