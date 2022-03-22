@@ -41,11 +41,11 @@ app.get("/", (req, res) => {
     res.render("index", {pokedex, pokemon});
 });
 
-app.post("/add", (req, res) => {
+app.post("/create", (req, res) => {
     const pokemon = req.body;
-    pokedex.id = pokedex.length + 1;
+    pokemon.id = pokedex.length + 1;
     pokedex.push(pokemon);
-    res.redirect("/")
+    res.redirect("/");
 });
 
 app.get("/detalhes/:id", (req, res) => {
