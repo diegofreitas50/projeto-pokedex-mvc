@@ -5,21 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
 </head>
 <body>
 
+    <nav>
+
+        <ul>
+            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>
+            <li><a href="/"><h1>Pokédex</h1></a></li>
+            <li><a href="#cadastro">Cadastro</a></li>
+            <li><a href="#cards">Pokemons</a></li>
+        </ul>        
+
+    </nav>
+
     <header>
-
-        <h1>Pokedex</h1>
-
+        <img src="/media/banner.png" alt="banner">
     </header>
 
     <main>
 
         <section id="cadastro">
 
-            <img src="/media/pokedex.png" alt="">
+            <img src="/media/pokedex.png" alt="pokédex">
 
             <div>
                 <% if (pokemon == undefined) { %>
@@ -79,7 +88,8 @@
                     <h3> <%= pokemon.nome %> </h3>
                     <p class="descricao"> <%= pokemon.descricao %> </p>
                     <p>Tipo <%= pokemon.tipo %> </p>
-                    <a href="/detalhes/<%= pokemon.id %>">Editar</a>
+                    <a id="editar" href="/detalhes/<%= pokemon.id %>">Editar</a>
+                    <a id="apagar" href="/delete/<%= pokemon.id %>">Apagar</a>
                 </div>        
             <% }) %>
             
@@ -89,6 +99,10 @@
 
     </main>
 
+    <footer>
+        <p>Todos os direitos reservados © </p>
+        <p>Dados retirados de <a target="_blank" href="https://www.pokemon.com/br/pokedex/">Pokédex</a></p>
+    </footer>
     
 
 </body>

@@ -4,18 +4,46 @@
     padding: 0;
     margin: 0;
     font-family: fredoka, Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
 
-header{
-    padding: 1rem;
+nav{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
     background-image: linear-gradient( 89.8deg,  rgba(222,74,74,1) 4.7%, rgba(30,29,29,1) 120.3% );
 }
 
-header h1{
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li{
+    padding: 0.6rem;
+}
+
+nav img{
+   width: 3rem; 
+}
+
+nav h1{
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
     text-shadow: 10px 0px 5px rgb(45, 45, 45);
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+header img{
+    margin-top: 4rem;
+    width: 100%;
 }
 
 main{
@@ -55,9 +83,8 @@ section#cards div.card p.descricao{
     margin-bottom: 1rem;
 }
 
-section#cards div.card a{
+section#cards div.card a#editar{
     padding: .6rem;
-    width: 20%;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -71,7 +98,27 @@ section#cards div.card a{
     margin-top: 2rem;
 }
 
-section#cards div.card a:hover{
+section#cards div.card a#apagar{
+    padding: .6rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 1rem;
+    background-color: #fff;
+    border: solid 1px red;
+    color: red;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+section#cards div.card a#editar:hover{
+    background-image: linear-gradient( 89.8deg,  rgba(222,74,74,1) 4.7%, rgba(30,29,29,1) 120.3% );
+    color: #fff;
+}
+
+section#cards div.card a#apagar:hover{
     background-image: linear-gradient( 89.8deg,  rgba(222,74,74,1) 4.7%, rgba(30,29,29,1) 120.3% );
     color: #fff;
 }
@@ -128,4 +175,26 @@ section#cadastro form button{
 section#cadastro form button:hover{
     background-image: linear-gradient( 89.8deg,  rgba(222,74,74,1) 4.7%, rgba(30,29,29,1) 120.3% );
     color: #fff;
+}
+
+footer{
+    background-image: linear-gradient( 89.8deg,  rgba(222,74,74,1) 4.7%, rgba(30,29,29,1) 120.3% );
+    padding: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer p{
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: .3rem;
+}
+
+footer p a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
 }
