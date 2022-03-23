@@ -12,10 +12,11 @@
     <nav>
 
         <ul>
-            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>
-            <li><a href="/"><h1>Pokédex</h1></a></li>
+            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>            
             <li><a href="/cadastro">Cadastro</a></li>
+            <li><a href="/"><h1>Pokédex</h1></a></li>
             <li><a href="/detalhes">Pokemons</a></li>
+            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>
         </ul>        
 
     </nav>
@@ -35,6 +36,9 @@
         
                     <form action="/create" method="post">
         
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" name="numero">
+
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome">
         
@@ -43,6 +47,18 @@
         
                         <label for="tipo">Tipo:</label>
                         <input type="text" id="tipo" name="tipo">
+
+                        <label for="altura">Altura:</label>
+                        <input type="text" id="altura" name="altura">
+
+                        <label for="peso">Peso:</label>
+                        <input type="text" id="peso" name="peso">
+
+                        <label for="categoria">Categoria:</label>
+                        <input type="text" id="categoria" name="categoria">
+
+                        <label for="habilidade">Habilidade:</label>
+                        <input type="text" id="habilidade" name="habilidade">
         
                         <label for="imagem">Link da imagem:</label>
                         <input type="text" id="imagem" name="imagem">
@@ -57,6 +73,9 @@
                     
                     <form action="/update/<%= pokemon.id %>" method="post">
         
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" name="numero" value="<%= pokemon.numero %>">
+
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
         
@@ -65,10 +84,22 @@
         
                         <label for="tipo">Tipo:</label>
                         <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %>">
+
+                        <label for="altura">Altura:</label>
+                        <input type="text" id="altura" name="altura" value="<%= pokemon.altura %>">
+
+                        <label for="peso">Peso:</label>
+                        <input type="text" id="peso" name="peso" value="<%= pokemon.peso %>">
+
+                        <label for="categoria">Categoria:</label>
+                        <input type="text" id="categoria" name="categoria" value="<%= pokemon.categoria %>">
+
+                        <label for="habilidade">Habilidade:</label>
+                        <input type="text" id="habilidade" name="habilidade" value="<%= pokemon.habilidade %>">
         
                         <label for="imagem">Link da imagem:</label>
                         <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %>">
-        
+                                                       
                         <button id="btnAtualizar" type="submit">Atualizar</button>
                     <% } %>
                     </form>
