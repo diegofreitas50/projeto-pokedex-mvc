@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Pokédex</title>
+    <title>Document</title>
 </head>
 <body>
-
     <nav>
 
         <ul>
@@ -18,7 +17,7 @@
             <li><a href="/detalhes">Pokemons</a></li>
         </ul>        
 
-    </nav>
+    </nav> 
 
     <header>
         <img src="/media/banner.png" alt="banner">
@@ -34,17 +33,16 @@
                 <div class="card">
                     <img src="<%= pokemon.imagem %>" alt="">
                     <h3> <%= pokemon.nome %> </h3>
-                                        
+                    <p class="descricao"> <%= pokemon.descricao %> </p>
+                    <p>Tipo <%= pokemon.tipo %> </p>
+                    <a id="editar" href="/editar/<%= pokemon.id %>">Editar</a>
+                    <a id="apagar" href="/delete/<%= pokemon.id %>">Apagar</a>
                 </div>        
             <% }) %>
             
         </section>
 
-        <div class="btn">
-
-            <a id="detalhes" href="/detalhes">Detalhes</a>
-
-        </div>        
+        
 
     </main>
 
@@ -52,7 +50,6 @@
         <p>Todos os direitos reservados © </p>
         <p>Dados retirados de <a target="_blank" href="https://www.pokemon.com/br/pokedex/">Pokédex</a></p>
     </footer>
-    
 
 </body>
 </html>

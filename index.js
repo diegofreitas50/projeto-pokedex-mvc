@@ -42,6 +42,14 @@ app.get("/", (req, res) => {
     res.render("index", {pokedex, pokemon});
 });
 
+app.get("/cadastro", (req, res) => {
+    res.render("cadastro", {pokedex, pokemon});
+});
+
+app.get("/detalhes", (req, res) => {
+    res.render("detalhes", {pokedex, pokemon});
+});
+
 app.post("/create", (req, res) => {
     const pokemon = req.body;
     pokemon.id = pokedex.length + 1;
@@ -49,7 +57,7 @@ app.post("/create", (req, res) => {
     res.redirect("/#cards");
 });
 
-app.get("/detalhes/:id", (req, res) => {
+app.get("/editar/:id", (req, res) => {
     const id = +req.params.id;
     pokemon = pokedex.find((pokemon) => pokemon.id === id);
     res.redirect("/#cadastro");
