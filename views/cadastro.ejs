@@ -1,136 +1,138 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Cadastro</title>
+    <title>Pokedex</title>
 </head>
-<body>
 
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
+    <body>  
 
-        <ul>
-            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>            
-            <li><a href="/cadastro">Cadastro</a></li>
-            <li><a href="/"><h1>Pokédex</h1></a></li>
-            <li><a href="/detalhes">Pokemons</a></li>
-            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>
-        </ul>        
+        <nav>
 
-    </nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
 
-    <header>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="/media/banner (0).jpg" alt=""></div>
-                <div class="swiper-slide"><img src="/media/banner (1).jpg" alt=""></div>
-                <div class="swiper-slide"><img src="/media/banner (2).jpg" alt=""></div>
-                <div class="swiper-slide"><img src="/media/banner (3).jpg" alt=""></div>
-              </div>
+            <ul>
 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+                <li><img src="/img/pokebola.png" alt="pokebola"></li>
+                <li> <a href="/cadastro"> Cadastro </a></li>
+                <li><h1> <a href="/">  Pokedex </a></h1></li>
+                <li> <a href="/detalhes"> Pokemons </a></li>
+                <li><img src="/img/pokebola.png" alt="pokebola"></li>
 
-        </div>
-    </header>
+            </ul>
 
-    <main>
-        <section id="cadastro">
+        </nav>
 
-            <img src="/media/pokedex.png" alt="pokédex">
+        <header>
 
-            <div>
-                <% if (pokemon == undefined) { %>
-                    <h2> Cadastre um novo Pokemon!</h2>
-        
-                    <form action="/create" method="post">
-        
-                        <label for="numero">Número:</label>
-                        <input type="text" id="numero" name="numero">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/img/banner.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner (1).jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner (3).jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner (4).jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner (5).jpg" alt=""></div>
+                </div>
 
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome">
-        
-                        <label for="descricao">Descrição:</label>
-                        <input type="text" id="descricao" name="descricao">
-        
-                        <label for="tipo">Tipo:</label>
-                        <input type="text" id="tipo" name="tipo">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
 
-                        <label for="altura">Altura:</label>
-                        <input type="text" id="altura" name="altura">
-
-                        <label for="peso">Peso:</label>
-                        <input type="text" id="peso" name="peso">
-
-                        <label for="categoria">Categoria:</label>
-                        <input type="text" id="categoria" name="categoria">
-
-                        <label for="habilidade">Habilidade:</label>
-                        <input type="text" id="habilidade" name="habilidade">
-        
-                        <label for="imagem">Link da imagem:</label>
-                        <input type="text" id="imagem" name="imagem">
-        
-                        <button id="btnCadastrar" type="submit">Cadastrar</button>
-        
-                    </form>
-        
-                    <% } else { %>
-        
-                        <h2>Atualize seu Pokemon!</h2>
-                    
-                    <form action="/update/<%= pokemon.id %>" method="post">
-        
-                        <label for="numero">Número:</label>
-                        <input type="text" id="numero" name="numero" value="<%= pokemon.numero %>">
-
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
-        
-                        <label for="descricao">Descrição:</label>
-                        <input type="text" id="descricao" name="descricao" value="<%= pokemon.descricao %>">
-        
-                        <label for="tipo">Tipo:</label>
-                        <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %>">
-
-                        <label for="altura">Altura:</label>
-                        <input type="text" id="altura" name="altura" value="<%= pokemon.altura %>">
-
-                        <label for="peso">Peso:</label>
-                        <input type="text" id="peso" name="peso" value="<%= pokemon.peso %>">
-
-                        <label for="categoria">Categoria:</label>
-                        <input type="text" id="categoria" name="categoria" value="<%= pokemon.categoria %>">
-
-                        <label for="habilidade">Habilidade:</label>
-                        <input type="text" id="habilidade" name="habilidade" value="<%= pokemon.habilidade %>">
-        
-                        <label for="imagem">Link da imagem:</label>
-                        <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %>">
-                                                       
-                        <button id="btnAtualizar" type="submit">Atualizar</button>
-                    <% } %>
-                    </form>
             </div>
 
-            
-        </section>
-    </main>
+        </header>
 
-    <footer>
-        <p>Todos os direitos reservados para <a target="_blank" href="https://www.instagram.com/mthiagoalves/">Thiago Alves</a> e <a target="_blank" href="https://www.instagram.com/diegofreitas50/"> Diego Freitas </a> ©</p>
-            <p>Inspirado em <a target="_blank" href="https://www.pokemon.com/br/">Pokedex</a></p>
+        <main>
+
+            <section id="cadastro">
+
+                <img src="/img/pokedex1.png" alt="">
+
+                <div>
+                    <% if (pokemon == undefined) { %>
+                        <h2> Cadastre um novo Pokemon!</h2>
+            
+                        <form action="/add" method="post">
+            
+                            <label for="numero">Id:</label>
+                            <input type="text" id="numero" name="numero">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome">
+            
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" id="descricao" name="descricao">
+            
+                            <label for="tipo">Tipo:</label>
+                            <input type="text" id="tipo" name="tipo">
+                            <label for="altura">Altura:</label>
+                            <input type="text" id="altura" name="altura">
+                            <label for="peso">Peso:</label>
+                            <input type="text" id="peso" name="peso">
+                            <label for="categoria">Categoria:</label>
+                            <input type="text" id="categoria" name="categoria">
+                            <label for="habilidade">Habilidade:</label>
+                            <input type="text" id="habilidade" name="habilidade">
+            
+                            <label for="imagem">Link da imagem:</label>
+                            <input type="text" id="imagem" name="imagem">
+            
+                            <button id="btnCadastrar" type="submit">Cadastrar</button>
+            
+                        </form>
+            
+                        <% } else { %>
+            
+                            <h2>Atualize seu Pokemon!</h2>
+                        
+                        <form action="/update/<%= pokemon.id %>" method="post">
+            
+                            <label for="numero">Id:</label>
+                            <input type="text" id="numero" name="numero" value="<%= pokemon.numero %>">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
+            
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" id="descricao" name="descricao" value="<%= pokemon.descricao %>">
+            
+                            <label for="tipo">Tipo:</label>
+                            <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %>">
+                            <label for="altura">Altura:</label>
+                            <input type="text" id="altura" name="altura" value="<%= pokemon.altura %>">
+                            <label for="peso">Peso:</label>
+                            <input type="text" id="peso" name="peso" value="<%= pokemon.peso %>">
+                            <label for="categoria">Categoria:</label>
+                            <input type="text" id="categoria" name="categoria" value="<%= pokemon.categoria %>">
+                            <label for="habilidade">Habilidade:</label>
+                            <input type="text" id="habilidade" name="habilidade" value="<%= pokemon.habilidade %>">
+            
+                            <label for="imagem">Link da imagem:</label>
+                            <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %>">
+                                                           
+                            <button id="btnAtualizar" type="submit">Atualizar</button>
+                        <% } %>
+                        </form>
+                </div>
+
+            </section>
+            
+        </main>
+
+        <footer>
+            <p>Todos os direitos reservados para <a target="_blank" href="https://www.instagram.com/mthiagoalves/">Thiago Alves</a> e <a target="_blank" href="https://www.instagram.com/diegofreitas50/"> Diego Freitas </a> ©</p>
+            <p>Inpirado em <a target="_blank" href="https://www.pokemon.com/br/">Pokedex</a></p>
         </footer>
-    </footer>
-    
-</body>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="scriptSlide.js"></script>
+
+    </body>
+
 </html>

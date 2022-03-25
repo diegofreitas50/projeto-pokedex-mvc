@@ -1,78 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Document</title>
+    <title>Pokedex</title>
 </head>
-<body>
 
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
+    <body>  
 
-        <ul>
-            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>            
-            <li><a href="/cadastro">Cadastro</a></li>
-            <li><a href="/"><h1>Pokédex</h1></a></li>
-            <li><a href="/detalhes">Pokemons</a></li>
-            <li><img src="/media/pokebola-go.png" alt="pokebola"></li>
-        </ul>        
+        <nav>
 
-    </nav> 
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
 
-    <header>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="/media/banner (0).jpg" alt=""></div>
-              <div class="swiper-slide"><img src="/media/banner (1).jpg" alt=""></div>
-              <div class="swiper-slide"><img src="/media/banner (2).jpg" alt=""></div>
-              <div class="swiper-slide"><img src="/media/banner (3).jpg" alt=""></div>
+            <ul>
+
+                <li><img src="/img/pokebola.png" alt="pokebola"></li>
+                <li> <a href="/cadastro"> Cadastro </a></li>
+                <li><h1> <a href="/">  Pokedex </a></h1></li>
+                <li> <a href="/detalhes"> Pokemons </a></li>
+                <li><img src="/img/pokebola.png" alt="pokebola"></li>
+
+            </ul>
+
+        </nav>
+
+        <header>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="/img/banner.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/banner (1).jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/banner (3).jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/banner (4).jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/banner (5).jpg" alt=""></div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+
             </div>
 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+        </header>
 
-        </div>
-    </header>
+        <main>
 
-    <main>
+            <section id="cards">
 
-        <section id="cards">
+                <div class="container-wrap">
 
-            <h2>Lista de pokemons</h2>
+                    <h2>Lista dos Pokemons</h2>
 
-            <% pokedex.forEach((pokemon) => { %>
-                <div class="card">
-                    <img src="<%= pokemon.imagem %>" alt="">
-                    <h3> <%= pokemon.nome %> </h3>
-                    <p class="descricao"> <%= pokemon.descricao %> </p>
-                    <p>Tipo <%= pokemon.tipo %> </p>
-                    <a id="editar" href="/editar/<%= pokemon.id %>">Editar</a>
-                    <a id="apagar" href="/delete/<%= pokemon.id %>">Apagar</a>
-                </div>        
-            <% }) %>
+                    <% pokedex.forEach((pokemon) => { %>
+
+                        <div class="container">
+                            <div class="product">
+                                <div class="product-card">
+                                    <h2 class="name"><%= pokemon.nome %></h2>
+                                    <span class="price"> Id: <%= pokemon.id %></span>
+                                    <a class="popup-btn">Detalhes</a>
+                                    <img src="<%= pokemon.imagem %>" alt="" class="product-img">
+                                </div>
+                                <div class="popup-view">
+                                    <div class="popup-card">
+                                        <a> <i class="fas fa-times close-btn"></i></a>
+                                        <div class="product-img">
+                                            <img src="<%= pokemon.imagem %>" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <h2 id="name-info"><%= pokemon.nome %> <br> <span><%= pokemon.tipo %></span> </h2>
+                                            <span class="price">Id: <%= pokemon.numero %></span>
+                                            <p><%= pokemon.descricao %></p>
+                                            <p>Altura: <%= pokemon.altura %></p><p>Peso: <%= pokemon.peso %></p>
+                                            <p>Categoria: <%= pokemon.categoria %></p><p>Habilidade: <%= pokemon.habilidade %></p>
+                                            <a href="/editar/<%= pokemon.id %>" class="add-cart-btn">Editar</a>
+                                            <a href="/deletar/<%= pokedex.indexOf(pokemon) %>" class="add-wish">Deletar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    <% }); %>
+
+                </div>
+    
+            </section>
             
-        </section>
+        </main>
 
+        <footer>
+            <p>Todos os direitos reservados para <a target="_blank" href=" https://www.instagram.com/mthiagoalves/ " >Thiago Alves </a> e <a target="_blank" href=" https://www.instagram.com/diegofreitas50/ " > Diego Freitas </a> ©</p>
+            <p>Inpirado em <a target="_blank" href=" https://www.pokemon.com/br/" >Pokedex</a></p>
+        </footer>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="script.js"></script>
+        <script src="scriptSlide.js"></script>
         
 
-    </main>
+    </body>
 
-    <footer>
-        <p>Todos os direitos reservados para <a target="_blank" href="https://www.instagram.com/mthiagoalves/">Thiago Alves</a> e <a target="_blank" href="https://www.instagram.com/diegofreitas50/"> Diego Freitas </a> ©</p>
-            <p>Inspirado em <a target="_blank" href="https://www.pokemon.com/br/">Pokedex</a></p>
-        </footer>
-    </footer>
-
-    <script src="/js/script.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-</body>
 </html>
