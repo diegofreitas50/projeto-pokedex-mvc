@@ -7,8 +7,13 @@
     scroll-behavior: smooth;
 }
 
+html{
+    min-width: 450px;
+}
+
 body{
     background-color: #151515;
+   
 }
 
 nav{
@@ -47,6 +52,10 @@ nav h1{
     text-shadow: 10px 0px 5px rgb(45, 45, 45);
 }
 
+header{
+    min-width: 450px;
+}
+
 header img{
     width: 100%;
     margin-top: 4.5rem;
@@ -69,13 +78,13 @@ header img{
 @media (max-width: 500px){
     .checkbtn{
        display: block; 
-    }    
+    } 
     
     nav ul{
         position: fixed;
         width: 100%;
-        height: 100vh;
-        background-image: linear-gradient( 106.9deg,  rgba(148,14,60,1) 60.9%, rgba(3,22,27,1) 122.3% );;
+        height: 100%;
+        background-image: linear-gradient( 178.2deg,  rgba(118,8,23,1) 10.9%, rgba(158,12,33,1) 62.6% );
         top: 80px;
         left: -100%;
         text-align: center;         
@@ -84,17 +93,17 @@ header img{
         justify-content: center;  
     }    
     nav ul li{
-        margin: 50px;
-        line-height: 30px;
+        margin: 1rem;
+        line-height: 2rem;
     }
     #check:checked ~ ul{
         left: 0;
     }
 }
 
-main{
+/* main{
     margin: 0 10rem 0 10rem;
-}
+} */
 
 section#cards{
     display: flex;
@@ -395,8 +404,12 @@ section#cards h2{
 
 section#cadastro{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
     padding: 3rem;
+    justify-content: center;
+    
 }
 
 section#cadastro h2{
@@ -407,9 +420,11 @@ section#cadastro h2{
 }
 
 section#cadastro img{
-    width: 100;
+    max-width: 500px;;
     display: flex;
     min-width: 300px;
+    margin: 2rem;
+    
 }
 
 section#cadastro form{
@@ -417,6 +432,7 @@ section#cadastro form{
 }
 
 section#cadastro form input{
+    min-width: 350px;
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
@@ -425,6 +441,8 @@ section#cadastro form input{
     margin: 0rem 0.6rem 0.6rem 0rem;
     border-radius: 10px;
     background-color: rgb(173, 173, 173);
+    flex-direction: column;
+    display: flex;
 }
 
 section#cadastro form label{
@@ -470,6 +488,7 @@ footer p{
 footer p a{
     text-decoration: none;
     color: rgb(15, 155, 22);
+    padding: 0 .3rem;
 }
 .swiper {
     width: 100%;
