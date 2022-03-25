@@ -1,9 +1,11 @@
 require("dotenv").config();
 const express = require("express");
-const { dirname } = require("path");
+// const { dirname } = require("path");
 const app = express();
 const port = process.env.PORT  || 3000;
 const path = require("path");
+
+// const { send } = require("express/lib/response");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
@@ -84,13 +86,13 @@ app.post("/update/:id", (req, res) => {
     newPokemon.id = id + 1;
     pokedex[id] = newPokemon;
     pokemon = undefined;
-    res.redirect("/#cards");
+    res.redirect("/detalhes");
 });
 
 app.get("/delete/:id", (req, res) => {
     const id = +req.params.id - 1;
-    delete pokedex[id];
-    res.redirect("/#cards");
+    pokedex.splice(id, 1);
+    res.redirect("/detalhes");
 });
 
 app.listen(port, () =>
