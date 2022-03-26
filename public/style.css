@@ -439,7 +439,7 @@ section#cadastro form input{
     outline: none;
     border: solid 2px #ccc;
     margin: 0rem 0.6rem 0.6rem 0rem;
-    border-radius: 10px;
+    border-radius: 3px 20px;
     background-color: rgb(173, 173, 173);
     flex-direction: column;
     display: flex;
@@ -454,12 +454,13 @@ section#cadastro form button{
     width: auto;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    background-color: #fff;
+    margin: 2px auto;
+    background-color: #555555;
     border: solid 1px rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
+    color: #fff;
     cursor: pointer;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;    
+    border-radius: 3px 20px;
 }
 
 section#cadastro form button:hover{
